@@ -6,9 +6,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.get('/api/greet', (req, res) => {
-  res.json({ message: 'Greetings from the server!' });
-});
+
 
 if (require.main === module) {
   app.listen(port, () => {
