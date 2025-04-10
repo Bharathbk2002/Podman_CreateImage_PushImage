@@ -6,8 +6,9 @@
     "test": "test"
   },
   "scripts": {
-    "start": "node app.js",
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node server.js"
+
   },
   "repository": {
     "type": "git",
@@ -22,8 +23,10 @@
   "homepage": "https://github.com/Bharathbk2002/Podman_CreateImage_PushImage#readme",
   "description": "",
   "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
     "chai": "^5.2.0",
-    "express": "^5.1.0",
     "mocha": "^11.1.0",
     "supertest": "^7.1.0"
   }
