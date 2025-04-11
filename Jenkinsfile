@@ -68,10 +68,10 @@ pipeline {
                 script
                 {
                     sh """
-                        ssh ubuntu@16.171.36.54 'podman rm ${IMAGE_NAME}'
-                        ssh ubuntu@16.171.36.54 'podman pull docker.io/bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}'
-                        ssh ubuntu@16.171.36.54 'podman run -d -p 4000:4000 --name ${IMAGE_NAME} bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}'
-                        ssh ubuntu@16.171.36.54 'curl http://6.171.36.54:4000' 
+                        ssh intern@9.30.183.242  'podman rm ${IMAGE_NAME}'
+                        ssh intern@9.30.183.242  'podman pull docker.io/bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}'
+                        ssh intern@9.30.183.242  'podman run -d -p 4000:4000 --name ${IMAGE_NAME} bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}'
+                        ssh intern@9.30.183.242  'curl http://6.171.36.54:4000' 
                        """
                 }
             }
