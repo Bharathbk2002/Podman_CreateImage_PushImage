@@ -47,6 +47,18 @@ pipeline {
                 }
             }
         }
+        stage('Deployment')
+        {
+            steps
+            {
+                script
+                {
+                    sh """
+                        podman run -d -p 8080:80 --name web-app bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}
+                    """
+                }
+            }
+        }
     }
 
     post {
