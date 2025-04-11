@@ -55,8 +55,8 @@ pipeline {
                 {
                     sh """
                         podman rm ${IMAGE_NAME}
-                        podman run -d -p 4000:5000 --name ${IMAGE_NAME} bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}
-                        curl http://localhost:5000
+                        podman run -d -p 4000:5002 --name ${IMAGE_NAME} bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}
+                        curl http://localhost:5002
                     """
                 }
             }
