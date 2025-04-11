@@ -54,6 +54,7 @@ pipeline {
                 script
                 {
                     sh """
+                        podman rm web-app
                         podman run -d -p 5000:5000 --name web-app bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}
                     """
                 }
