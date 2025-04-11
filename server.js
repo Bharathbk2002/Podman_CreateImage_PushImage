@@ -8,10 +8,8 @@ app.get('/', (req, res) => {
 
 
 
-if (require.main === module) {
   app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
   });
-}
 
 module.exports = app; 
