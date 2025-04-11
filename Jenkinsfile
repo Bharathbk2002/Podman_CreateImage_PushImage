@@ -68,7 +68,7 @@ pipeline {
                 script
                 {
                     sh """
-                        ssh ubuntu@16.171.36.54 'podman pull bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}'
+                        ssh ubuntu@16.171.36.54 'podman pull docker.io/bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}'
                         ssh ubuntu@16.171.36.54 'podman run -d -p 4000:4000 --name ${IMAGE_NAME} bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}'
                         ssh ubuntu@16.171.36.54 'curl http://localhost:4000' 
                        """
