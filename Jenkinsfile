@@ -54,7 +54,7 @@ pipeline {
                 script
                 {
                     sh """
-                        podman run -d -p 8080:80 --name web-app bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}
+                        podman run -d -p 5000:5000 --name web-app bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}
                     """
                 }
             }
@@ -63,7 +63,7 @@ pipeline {
 
     post {
         success {
-            echo 'Image built,tested and pushed successfully!'
+            echo 'Image built,tested,pushed and deployed successfully!'
         }
         failure {
             echo 'Pipeline failed.'
