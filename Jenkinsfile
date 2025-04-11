@@ -56,6 +56,7 @@ pipeline {
                     sh """
                         podman rm web-app
                         podman run -d -p 4000:4000 --name web-app bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}
+                        curl http://localhost:4000
                     """
                 }
             }
