@@ -49,12 +49,13 @@ pipeline {
                             podman push bharathbk02/${IMAGE_NAME}:${IMAGE_TAG} 
                         """
                     }
+                    }
                     else if(params.PUSH_image=='PushImage_no')
                     {
 
                         println("Push imagged skipped")
                     }
-                    }
+                    
                 }
             }
         }
