@@ -53,7 +53,7 @@ pipeline {
                     else if(params.PUSH_image=='PushImage_no')
                     {
 
-                        println("Push imagged skipped")
+                        echo "Push imagged skipped"
                     }
                     
                 }
