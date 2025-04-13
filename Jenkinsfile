@@ -55,37 +55,13 @@ pipeline {
                 {
                     sh """
                         podman rm ${IMAGE_NAME}
-                        podman run -d -p 4000:4000 --name ${IMAGE_NAME} bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}
-                        curl http://localhost:4000
+                        podman run -d -p 4002:4000 --name ${IMAGE_NAME} bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}
+                        curl http://localhost:4002
                     """
                 }
             }
         }
-        stage('Cloud VM Deployment')
-        {
-            steps
-            {
-                script
-                {
-                    // sh """
-                        // ssh root@9.30.183.242  'podman rm ${IMAGE_NAME}'
-        //                 ssh root@9.30.183.242  'podman pull docker.io/bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}'
-        //                 ssh root@9.30.183.242  'podman run -d -p 4000:4000 --name ${IMAGE_NAME} bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}'
-        //                 ssh root@9.30.183.242  'curl http://9.30.183.242:4000' 
-        //                """
-
-                    sh "ssh pass -p sandb00kPassw0rd! ssh root@9.30.183.242 'podman rm ${IMAGE_NAME}'"
-                    sh "ssh pass -p sandb00kPassw0rd! ssh root@9.30.183.242 'podman pull docker.io/bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}'"
-                    sh "ssh pass -p sandb00kPassw0rd! ssh root@9.30.183.242 'podman run -d -p 4000:4000 --name ${IMAGE_NAME} bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}'"
-                    sh "ssh pass -p sandb00kPassw0rd! ssh root@9.30.183.242 'curl http://9.30.183.242:4000'"
-
-
-
-
-                }
-            }
-        }
-
+        
     }
 
     post {
