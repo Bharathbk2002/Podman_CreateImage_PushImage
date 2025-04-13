@@ -19,11 +19,15 @@ pipeline {
             }
         }
         
-        stage('Build Image') {
+        stage('Build Image and test image') {
+            parallel
+            {
+            stage('Build Image')
+            {
             steps {
                 script {
                     sh """
-                        podman build -t bharathbk02/${IMAGE_NAME}:${IMAGE_TAG} .
+                        podman build --layers=true -t bharathbk02/${IMAGE_NAME}:${IMAGE_TAG} .
                     """
                 }
             }
@@ -37,7 +41,8 @@ pipeline {
                 }
             }
         }
-        
+        }
+        } 
         stage('Push Image') {
             steps {
                 script {
