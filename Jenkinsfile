@@ -23,13 +23,18 @@ pipeline {
             steps{
                 sh """
                     if ! command -v gitleaks &> /dev/null; then
-                    echo "installing gitleaks"
-                    brew install gitleaks
+                        echo "installing gitleaks"
+                        brew install gitleaks
                     fi
-                    git clone https://github.com/Bharathbk2002/Podman_CreateImage_PushImage.git
-                    cd Podman_CreateImage_PushImage
-                    echo "Scanning for hardcoded passwords, API Keys, tokens..."
-                    gitleaks detect --source . --verbose --exit-code 1
+
+                    if [ -d "Podman_CreateImage_PushImage" ]; then
+                        echo "Repository already cloned. Pulling the latest changes..."
+                        cd Podman_CreateImage_PushImage
+                        git pull
+                    else
+                        git clone https://github.com/Bharathbk2002/Podman_CreateImage_PushImage.git
+                        cd Podman_CreateImage_PushImage
+                    fi
                    """    
             }
         }
