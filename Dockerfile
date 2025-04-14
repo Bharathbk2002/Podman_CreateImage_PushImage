@@ -1,5 +1,7 @@
 FROM node:18
 
+RUN rm -rf /usr/local/lib/node_modules/npm/node_modules/cross-spawn
+
 WORKDIR /app
 
 COPY package*.json ./
