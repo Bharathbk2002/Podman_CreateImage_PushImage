@@ -124,7 +124,7 @@ withCredentials([usernamePassword(credentialsId: 'intern1', passwordVariable: 'p
 
             sh """
 
-            sh "sshpass -p $passed ssh $user@intern1.fyre.ibm.com 'podman pull bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}'"
+            sh "sshpass -p $passed ssh $user@intern1.fyre.ibm.com 'pwd ; ls -ltr ; uname -a'"
 
 
             """
