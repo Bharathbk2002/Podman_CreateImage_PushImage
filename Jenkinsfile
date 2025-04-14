@@ -6,7 +6,8 @@ pipeline {
         IMAGE_NAME = 'web-app'  
         IMAGE_TAG = 'latest'  
         REGISTRY_URL = 'docker.io'  
-        REGISTRY_CREDENTIALS = 'dockerhub-credentials'  
+        REGISTRY_CREDENTIALS = 'dockerhub-credentials'
+        JNEKINS_CREDENTIALS='inter1-credentials'
     }
     parameters {
   choice choices: ['PushImage_yes', 'Pushimage_no'], name: 'Push_image'
@@ -113,6 +114,22 @@ pipeline {
                     """
                 }
             }
+        }
+
+        stage('cloud deployment')
+        {
+        steps
+        {
+withCredentials([usernamePassword(credentialsId: 'intern1', passwordVariable: 'passed', usernameVariable: 'user')]) {
+
+            sh """
+
+            sh "sshpass -p $passed ssh $user@intern1.fyre.ibm.com 'podman pull bharathbk02/${IMAGE_NAME}:${IMAGE_TAG}'"
+
+
+            """
+}
+        }
         }
         
     }
