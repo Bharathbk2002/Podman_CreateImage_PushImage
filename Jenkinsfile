@@ -18,6 +18,19 @@ pipeline {
                 git url: REPO_URL, branch: 'main'
             }
         }
+        stage('gitleaks')
+        {
+            steps{
+                sh """
+                    if ! command -v gitleaks &> /dev/null; then
+                    echo "installing gitleaks"
+                    brew install gitleaks
+                    fi
+                    echo "scanning for hardcoded passwords,API Keys,tokens..."
+                    gitleaks detect --source . --verbose --exit-code 1
+                   """    
+            }
+        }
         
         stage('Build Image and test image') {
             parallel
