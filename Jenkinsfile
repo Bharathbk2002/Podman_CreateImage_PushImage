@@ -27,7 +27,7 @@ pipeline {
                     brew install gitleaks
                     fi
                     echo "scanning for hardcoded passwords,API Keys,tokens..."
-                    gitleaks detect --source . --verbose --exit-code 1
+                    gitleaks detect --repo=https://github.com/Bharathbk2002/Podman_CreateImage_PushImage.git --verbose --exit-code 1
                    """    
             }
         }
