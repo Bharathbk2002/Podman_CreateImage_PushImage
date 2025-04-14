@@ -122,12 +122,9 @@ pipeline {
         {
 withCredentials([usernamePassword(credentialsId: 'intern1', passwordVariable: 'passed', usernameVariable: 'user')]) {
 
-            sh """
-
             sh "sshpass -p $passed ssh $user@intern1.fyre.ibm.com 'pwd ; ls -ltr ; uname -a'"
 
 
-            """
 }
         }
         }
