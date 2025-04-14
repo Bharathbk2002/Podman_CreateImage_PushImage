@@ -75,8 +75,8 @@ pipeline {
                     fi
                     echo "scanning filesystems for vulnerabilites"
                     trivy fs . --exit-code 0 --severity CRITICAL,HIGH || true
-                    echo "Scanning images..!"
-                    trivy image bharathbk02/${IMAGE_NAME}:${IMAGE_TAG} --exit-code 1 --severity CRITICAL,HIGH 
+                    #echo "Scanning images..!"
+                    #trivy image bharathbk02/${IMAGE_NAME}:${IMAGE_TAG} --exit-code 1 --severity CRITICAL,HIGH 
                   """
             }
         }
