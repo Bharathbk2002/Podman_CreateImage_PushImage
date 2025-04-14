@@ -1,4 +1,4 @@
-FROM node:16
+FROM node:18-slim
 
 WORKDIR /app
 
@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 4000
 
-CMD ["sh", "-c", "npm start & npm test"]
+CMD ["npm start"]
